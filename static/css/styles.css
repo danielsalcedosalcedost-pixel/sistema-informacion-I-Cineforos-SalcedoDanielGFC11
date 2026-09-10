@@ -1,0 +1,365 @@
+/* -----------------------------------
+   CONFIGURACIÓN GENERAL
+----------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f3f6;
+    color: #222;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* -----------------------------------
+   ENCABEZADO
+----------------------------------- */
+
+.encabezado {
+    background-color: #182848;
+    color: white;
+    padding: 20px 0;
+}
+
+.encabezado-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+/* -----------------------------------
+   NAVEGACIÓN
+----------------------------------- */
+
+.navegacion {
+    display: flex;
+    gap: 20px;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.navegacion a:hover {
+    background-color: #304878;
+}
+
+
+/* -----------------------------------
+   HERO / PRESENTACIÓN
+----------------------------------- */
+
+.hero {
+    background-color: #304878;
+    color: white;
+    padding: 70px 0;
+    text-align: center;
+}
+
+.hero-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* -----------------------------------
+   BOTONES
+----------------------------------- */
+
+.boton {
+    display: inline-block;
+    background-color: #e09f3e;
+    color: #222;
+    padding: 12px 22px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #f0b55a;
+}
+
+.boton-secundario {
+    background-color: #d7dce3;
+    color: #222;
+}
+
+.boton-secundario:hover {
+    background-color: #c2c8d0;
+}
+
+
+/* -----------------------------------
+   INFORMACIÓN
+----------------------------------- */
+
+.informacion {
+    padding: 50px 0;
+    background-color: white;
+}
+
+.informacion h2,
+.normas h2,
+.registros h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #182848;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: #f1f3f6;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #e09f3e;
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+    color: #304878;
+}
+
+.tarjeta p {
+    line-height: 1.6;
+}
+
+
+/* -----------------------------------
+   NORMAS
+----------------------------------- */
+
+.normas {
+    padding: 50px 0;
+    background-color: #e7ebf0;
+}
+
+.texto-normas {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.texto-normas p {
+    line-height: 1.7;
+}
+
+
+/* -----------------------------------
+   REGISTROS
+----------------------------------- */
+
+.registros {
+    padding: 50px 0;
+    background-color: white;
+}
+
+.lista-contactos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contacto {
+    background-color: #f1f3f6;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #d5d9df;
+}
+
+.contacto-cabecera {
+    background-color: #304878;
+    color: white;
+    padding: 15px 20px;
+}
+
+.contacto-cabecera h3 {
+    margin: 0;
+}
+
+.contacto-contenido {
+    padding: 20px;
+}
+
+.contacto-contenido p {
+    line-height: 1.6;
+}
+
+.sin-registros {
+    text-align: center;
+    padding: 30px;
+    background-color: #f1f3f6;
+    border-radius: 10px;
+}
+
+
+/* -----------------------------------
+   FORMULARIO
+----------------------------------- */
+
+.formulario-seccion {
+    padding: 60px 0;
+    min-height: 600px;
+}
+
+.formulario-contenedor {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formulario-titulo h2 {
+    color: #182848;
+    margin-bottom: 10px;
+}
+
+.formulario-titulo p {
+    color: #555;
+}
+
+
+/* -----------------------------------
+   CAMPOS
+----------------------------------- */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #304878;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c9ced6;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #304878;
+}
+
+.campo textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* -----------------------------------
+   BOTONES DEL FORMULARIO
+----------------------------------- */
+
+.botones-formulario {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.boton-enviar {
+    font-size: 15px;
+}
+
+
+/* -----------------------------------
+   PIE DE PÁGINA
+----------------------------------- */
+
+.pie {
+    background-color: #182848;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+}
+
+.pie p {
+    margin: 0;
+}
+
+
+/* -----------------------------------
+   DISEÑO RESPONSIVO
+----------------------------------- */
+
+@media (max-width: 700px) {
+
+    .encabezado-contenido {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-contactos {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .formulario-contenedor {
+        padding: 25px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+
+}
