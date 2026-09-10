@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - I♥Cineforos</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+
+        <div class="contenedor encabezado-contenido">
+
+            <div class="logo">
+                <h1>I♥Cineforos</h1>
+            </div>
+
+            <nav class="navegacion">
+
+                <a href="{{ url_for('inicio') }}">
+                    Inicio
+                </a>
+
+                <a href="{{ url_for('formulario') }}">
+                    Registrarse
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <section class="formulario-seccion">
+
+            <div class="contenedor">
+
+                <div class="formulario-contenedor">
+
+                    <div class="formulario-titulo">
+
+                        <h2>
+                            Registro al cineforo
+                        </h2>
+
+                        <p>
+                            Completa el siguiente formulario para
+                            reservar tu participación en I♥Cineforos :3.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FORMULARIO -->
+                    <form method="POST" class="formulario">
+
+                        <div class="campo">
+
+                            <label for="nombre">
+                                Nombre completo:
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                placeholder="Escribe tu nombre"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="correo">
+                                Correo electrónico:
+                            </label>
+
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="ejemplo@correo.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="mensaje">
+                                Opinión o comentario:
+                            </label>
+
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                placeholder="Escribe algún comentario sobre tu participación..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="botones-formulario">
+
+                            <button
+                                type="submit"
+                                class="boton boton-enviar">
+                                Registrar participación
+                            </button>
+
+                            <a
+                                href="{{ url_for('inicio') }}"
+                                class="boton boton-secundario">
+                                Volver al inicio
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+
+        <div class="contenedor">
+
+            <p>
+                I♥Cineforos - Bogotá D.C., Colombia
+                <br>
+                Made with ❤️ by SoftNova
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
