@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS contactos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    correo TEXT NOT NULL,
+    mensaje TEXT NOT NULL
+);
