@@ -3,6 +3,7 @@ import sqlite3
 import os
 
 app = Flask(__name__)
+application = app  # <-- Definido a nivel global para el servidor WSGI
 
 # Ubicación de la base de datos
 DATABASE = os.path.join(app.root_path, "database.db")
@@ -21,14 +22,15 @@ def conectar_bd():
 # CREAR ESTRUCTURA DE LA BASE DE DATOS
 # --------------------------------------------------
 def crear_bd():
-    conexion = sqlite3.connect(DATABASE)
+    if not os.path.exists(DATABASE):
+        conexion = sqlite3.connect(DATABASE)
+        ruta_schema = os.path.join(app.root_path, "schema.sql")
+        with open(ruta_schema, "r", encoding="utf-8") as archivo:
+            conexion.executescript(archivo.read())
+        conexion.close()
 
-    ruta_schema = os.path.join(app.root_path, "schema.sql")
-
-    with open(ruta_schema, "r", encoding="utf-8") as archivo:
-        conexion.executescript(archivo.read())
-
-    conexion.close()
+# Ejecutar la creación de la BD si no existe al cargar el servidor
+crear_bd()
 
 
 # --------------------------------------------------
@@ -36,19 +38,13 @@ def crear_bd():
 # --------------------------------------------------
 @app.route("/")
 def inicio():
-
     conexion = conectar_bd()
-
     contactos = conexion.execute(
         "SELECT * FROM contactos ORDER BY id DESC"
     ).fetchall()
-
     conexion.close()
 
-    return render_template(
-        "index.html",
-        contactos=contactos
-    )
+    return render_template("index.html", contactos=contactos)
 
 
 # --------------------------------------------------
@@ -56,17 +52,12 @@ def inicio():
 # --------------------------------------------------
 @app.route("/formulario", methods=["GET", "POST"])
 def formulario():
-
     if request.method == "POST":
-
-        # Recibir información del formulario
         nombre = request.form["nombre"]
         correo = request.form["correo"]
         mensaje = request.form["mensaje"]
 
-        # Guardar información en la base de datos
         conexion = conectar_bd()
-
         conexion.execute(
             """
             INSERT INTO contactos (nombre, correo, mensaje)
@@ -74,19 +65,16 @@ def formulario():
             """,
             (nombre, correo, mensaje)
         )
-
         conexion.commit()
         conexion.close()
 
-        # Regresar a la página principal
         return redirect(url_for("inicio"))
 
     return render_template("formulario.html")
 
 
 # --------------------------------------------------
-# INICIAR SERVIDOR
+# INICIAR SERVIDOR LOCAL
 # --------------------------------------------------
 if __name__ == "__main__":
-    crear_bd()
     app.run(debug=True)
